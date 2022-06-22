@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZppgTRqXk+qdJkUex983S3VG7YcMhJfYw08aMXk7eoacxs/nW/2lC1ssJur0udo5lkC8Om14zOOO3TTKlYXvmA==",
+  "dgSpecHash": "jVg6/TTc046r4BRNYgHB90EWwPCS/W7bNN8sGyYS2zOQZoFEjJ70RI9Mk1O3QXotMW/GOnqAFA19fy0ml40bOg==",
   "success": true,
-  "projectFilePath": "C:\\projects\\demo-git\\src\\DemoGit.Infrastructure.Context\\DemoGit.Infrastructure.Context.csproj",
+  "projectFilePath": "c:\\projects\\demo-git\\src\\DemoGit.Infrastructure.Context\\DemoGit.Infrastructure.Context.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gabzomer\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\gabzomer\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",

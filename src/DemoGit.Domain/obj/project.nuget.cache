@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "DJsAPTTHz5Qj61allfgwmR1UXZ7lj2Aba1KJbIJ1Lv3ND+qQ7uAX6UG4tirIQagJgahFVrTW1ngE0w7FP0PEDA==",
+  "dgSpecHash": "AhThYN5cyfL9CKchZStcAKvtL0DywmISbM95cGZKbuMF8nrR+Rnfppcc94wHtiu1OtARVH9IWAHA4ssI4bbJ3g==",
   "success": true,
-  "projectFilePath": "C:\\projects\\demo-git\\src\\DemoGit.Domain\\DemoGit.Domain.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "c:\\projects\\demo-git\\src\\DemoGit.Domain\\DemoGit.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gabzomer\\.nuget\\packages\\mongodb.bson\\2.16.1\\mongodb.bson.2.16.1.nupkg.sha512",
+    "C:\\Users\\gabzomer\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
