@@ -1,0 +1,12 @@
+C:\projects\demo-git\src\DemoGit.Domain\bin\Debug\net6.0\DemoGit.Domain.deps.json
+C:\projects\demo-git\src\DemoGit.Domain\bin\Debug\net6.0\DemoGit.Domain.dll
+C:\projects\demo-git\src\DemoGit.Domain\bin\Debug\net6.0\DemoGit.Domain.pdb
+C:\projects\demo-git\src\DemoGit.Domain\obj\Debug\net6.0\DemoGit.Domain.csproj.AssemblyReference.cache
+C:\projects\demo-git\src\DemoGit.Domain\obj\Debug\net6.0\DemoGit.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\projects\demo-git\src\DemoGit.Domain\obj\Debug\net6.0\DemoGit.Domain.AssemblyInfoInputs.cache
+C:\projects\demo-git\src\DemoGit.Domain\obj\Debug\net6.0\DemoGit.Domain.AssemblyInfo.cs
+C:\projects\demo-git\src\DemoGit.Domain\obj\Debug\net6.0\DemoGit.Domain.csproj.CoreCompileInputs.cache
+C:\projects\demo-git\src\DemoGit.Domain\obj\Debug\net6.0\DemoGit.Domain.dll
+C:\projects\demo-git\src\DemoGit.Domain\obj\Debug\net6.0\refint\DemoGit.Domain.dll
+C:\projects\demo-git\src\DemoGit.Domain\obj\Debug\net6.0\DemoGit.Domain.pdb
+C:\projects\demo-git\src\DemoGit.Domain\obj\Debug\net6.0\ref\DemoGit.Domain.dll

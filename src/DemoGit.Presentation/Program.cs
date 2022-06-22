@@ -1,7 +1,15 @@
+using DemoGit.Domain.Entities;
+using DemoGit.Infrastructure.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.Configure<ConnectionStrings>(builder.Configuration.GetSection("ConnectionStrings"));
+builder.Services.AddOptions();
+
+builder.Services.AddScoped<DatabaseContext>();
 
 var app = builder.Build();
 

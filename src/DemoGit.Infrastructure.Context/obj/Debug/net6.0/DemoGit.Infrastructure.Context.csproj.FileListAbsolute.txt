@@ -1,0 +1,15 @@
+C:\projects\demo-git\src\DemoGit.Infrastructure.Context\bin\Debug\net6.0\DemoGit.Infrastructure.Context.deps.json
+C:\projects\demo-git\src\DemoGit.Infrastructure.Context\bin\Debug\net6.0\DemoGit.Infrastructure.Context.dll
+C:\projects\demo-git\src\DemoGit.Infrastructure.Context\bin\Debug\net6.0\DemoGit.Infrastructure.Context.pdb
+C:\projects\demo-git\src\DemoGit.Infrastructure.Context\bin\Debug\net6.0\DemoGit.Domain.dll
+C:\projects\demo-git\src\DemoGit.Infrastructure.Context\bin\Debug\net6.0\DemoGit.Domain.pdb
+C:\projects\demo-git\src\DemoGit.Infrastructure.Context\obj\Debug\net6.0\DemoGit.Infrastructure.Context.csproj.AssemblyReference.cache
+C:\projects\demo-git\src\DemoGit.Infrastructure.Context\obj\Debug\net6.0\DemoGit.Infrastructure.Context.GeneratedMSBuildEditorConfig.editorconfig
+C:\projects\demo-git\src\DemoGit.Infrastructure.Context\obj\Debug\net6.0\DemoGit.Infrastructure.Context.AssemblyInfoInputs.cache
+C:\projects\demo-git\src\DemoGit.Infrastructure.Context\obj\Debug\net6.0\DemoGit.Infrastructure.Context.AssemblyInfo.cs
+C:\projects\demo-git\src\DemoGit.Infrastructure.Context\obj\Debug\net6.0\DemoGit.Infrastructure.Context.csproj.CoreCompileInputs.cache
+C:\projects\demo-git\src\DemoGit.Infrastructure.Context\obj\Debug\net6.0\DemoGit.Infrastructure.Context.csproj.CopyComplete
+C:\projects\demo-git\src\DemoGit.Infrastructure.Context\obj\Debug\net6.0\DemoGit.Infrastructure.Context.dll
+C:\projects\demo-git\src\DemoGit.Infrastructure.Context\obj\Debug\net6.0\refint\DemoGit.Infrastructure.Context.dll
+C:\projects\demo-git\src\DemoGit.Infrastructure.Context\obj\Debug\net6.0\DemoGit.Infrastructure.Context.pdb
+C:\projects\demo-git\src\DemoGit.Infrastructure.Context\obj\Debug\net6.0\ref\DemoGit.Infrastructure.Context.dll

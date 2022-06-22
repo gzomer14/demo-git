@@ -1,5 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
+  <ItemGroup>
+    <ProjectReference Include="..\DemoGit.Domain\DemoGit.Domain.csproj" />
+    <ProjectReference Include="..\DemoGit.Infrastructure.Context\DemoGit.Infrastructure.Context.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
