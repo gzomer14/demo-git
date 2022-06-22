@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\projects\\demo-git\\src\\DemoGit.Presentation\\DemoGit.Presentation.csproj": {}
+    "C:\\projects\\demo-git\\src\\DemoGit.Presentation\\DemoGit.Presentation.csproj": {}
   },
   "projects": {
-    "c:\\projects\\demo-git\\src\\DemoGit.Domain\\DemoGit.Domain.csproj": {
+    "C:\\projects\\demo-git\\src\\DemoGit.Domain\\DemoGit.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\projects\\demo-git\\src\\DemoGit.Domain\\DemoGit.Domain.csproj",
+        "projectUniqueName": "C:\\projects\\demo-git\\src\\DemoGit.Domain\\DemoGit.Domain.csproj",
         "projectName": "DemoGit.Domain",
-        "projectPath": "c:\\projects\\demo-git\\src\\DemoGit.Domain\\DemoGit.Domain.csproj",
+        "projectPath": "C:\\projects\\demo-git\\src\\DemoGit.Domain\\DemoGit.Domain.csproj",
         "packagesPath": "C:\\Users\\gabzomer\\.nuget\\packages\\",
-        "outputPath": "c:\\projects\\demo-git\\src\\DemoGit.Domain\\obj\\",
+        "outputPath": "C:\\projects\\demo-git\\src\\DemoGit.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -67,14 +67,14 @@
         }
       }
     },
-    "c:\\projects\\demo-git\\src\\DemoGit.Infrastructure.Context\\DemoGit.Infrastructure.Context.csproj": {
+    "C:\\projects\\demo-git\\src\\DemoGit.Infrastructure.Context\\DemoGit.Infrastructure.Context.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\projects\\demo-git\\src\\DemoGit.Infrastructure.Context\\DemoGit.Infrastructure.Context.csproj",
+        "projectUniqueName": "C:\\projects\\demo-git\\src\\DemoGit.Infrastructure.Context\\DemoGit.Infrastructure.Context.csproj",
         "projectName": "DemoGit.Infrastructure.Context",
-        "projectPath": "c:\\projects\\demo-git\\src\\DemoGit.Infrastructure.Context\\DemoGit.Infrastructure.Context.csproj",
+        "projectPath": "C:\\projects\\demo-git\\src\\DemoGit.Infrastructure.Context\\DemoGit.Infrastructure.Context.csproj",
         "packagesPath": "C:\\Users\\gabzomer\\.nuget\\packages\\",
-        "outputPath": "c:\\projects\\demo-git\\src\\DemoGit.Infrastructure.Context\\obj\\",
+        "outputPath": "C:\\projects\\demo-git\\src\\DemoGit.Infrastructure.Context\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -94,8 +94,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "c:\\projects\\demo-git\\src\\DemoGit.Domain\\DemoGit.Domain.csproj": {
-                "projectPath": "c:\\projects\\demo-git\\src\\DemoGit.Domain\\DemoGit.Domain.csproj"
+              "C:\\projects\\demo-git\\src\\DemoGit.Domain\\DemoGit.Domain.csproj": {
+                "projectPath": "C:\\projects\\demo-git\\src\\DemoGit.Domain\\DemoGit.Domain.csproj"
               }
             }
           }
@@ -138,14 +138,14 @@
         }
       }
     },
-    "c:\\projects\\demo-git\\src\\DemoGit.Presentation\\DemoGit.Presentation.csproj": {
+    "C:\\projects\\demo-git\\src\\DemoGit.Presentation\\DemoGit.Presentation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\projects\\demo-git\\src\\DemoGit.Presentation\\DemoGit.Presentation.csproj",
+        "projectUniqueName": "C:\\projects\\demo-git\\src\\DemoGit.Presentation\\DemoGit.Presentation.csproj",
         "projectName": "DemoGit.Presentation",
-        "projectPath": "c:\\projects\\demo-git\\src\\DemoGit.Presentation\\DemoGit.Presentation.csproj",
+        "projectPath": "C:\\projects\\demo-git\\src\\DemoGit.Presentation\\DemoGit.Presentation.csproj",
         "packagesPath": "C:\\Users\\gabzomer\\.nuget\\packages\\",
-        "outputPath": "c:\\projects\\demo-git\\src\\DemoGit.Presentation\\obj\\",
+        "outputPath": "C:\\projects\\demo-git\\src\\DemoGit.Presentation\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -165,11 +165,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "c:\\projects\\demo-git\\src\\DemoGit.Domain\\DemoGit.Domain.csproj": {
-                "projectPath": "c:\\projects\\demo-git\\src\\DemoGit.Domain\\DemoGit.Domain.csproj"
+              "C:\\projects\\demo-git\\src\\DemoGit.Domain\\DemoGit.Domain.csproj": {
+                "projectPath": "C:\\projects\\demo-git\\src\\DemoGit.Domain\\DemoGit.Domain.csproj"
               },
-              "c:\\projects\\demo-git\\src\\DemoGit.Infrastructure.Context\\DemoGit.Infrastructure.Context.csproj": {
-                "projectPath": "c:\\projects\\demo-git\\src\\DemoGit.Infrastructure.Context\\DemoGit.Infrastructure.Context.csproj"
+              "C:\\projects\\demo-git\\src\\DemoGit.Infrastructure.Context\\DemoGit.Infrastructure.Context.csproj": {
+                "projectPath": "C:\\projects\\demo-git\\src\\DemoGit.Infrastructure.Context\\DemoGit.Infrastructure.Context.csproj"
               }
             }
           }

@@ -1,0 +1,28 @@
+﻿@model DemoGit.Domain.Entities.Produto
+@{
+    ViewData["Title"] = "Inserir Produto";
+}
+
+<h1>Produto</h1>
+
+@using(Html.BeginForm("Inserir", "Produto", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+
+    <div>
+        @Html.LabelFor(p => p.Descricao, new {id = "LabelProdutoDescricao"})
+        @Html.EditorFor(p => p.Descricao, new {htmlAttributes = new {id = "ProdutoDescricao", @class="form-control"}})
+    </div>
+    <div>
+        @Html.LabelFor(p => p.Preco, new {id = "LabelProdutoPreco"})
+        @Html.EditorFor(p => p.Preco, new {htmlAttributes = new {id = "ProdutoPreco", @class="form-control"}})
+    </div>
+    <div>
+        @Html.LabelFor(p => p.QuantidadeEstoque, new {id = "LabelProdutoQuantidadeEstoque"})
+        @Html.EditorFor(p => p.QuantidadeEstoque, new {htmlAttributes = new {id = "ProdutoQuantidadeEstoque", @class="form-control"}})
+    </div>
+    <br/>
+    <div>
+        <input type="submit" value="Criar Produto" class="btn btn-primary"/>
+    </div>
+}

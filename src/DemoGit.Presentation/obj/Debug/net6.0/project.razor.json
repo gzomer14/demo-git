@@ -16298,6 +16298,11 @@
   "RootNamespace": "DemoGit.Presentation",
   "Documents": [
     {
+      "FilePath": "c:\\projects\\demo-git\\src\\DemoGit.Presentation\\Views\\Produto\\Index.cshtml",
+      "TargetPath": "Views\\Produto\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\projects\\demo-git\\src\\DemoGit.Presentation\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -16308,8 +16313,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\projects\\demo-git\\src\\DemoGit.Presentation\\Views\\Produto\\Inserir.cshtml",
+      "TargetPath": "Views\\Produto\\Inserir.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\projects\\demo-git\\src\\DemoGit.Presentation\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\projects\\demo-git\\src\\DemoGit.Presentation\\Views\\Produto\\Editar.cshtml",
+      "TargetPath": "Views\\Produto\\Editar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\projects\\demo-git\\src\\DemoGit.Presentation\\Views\\Produto\\Deletar.cshtml",
+      "TargetPath": "Views\\Produto\\Deletar.cshtml",
       "FileKind": "mvc"
     },
     {

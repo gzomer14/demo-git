@@ -1,0 +1,18 @@
+﻿@model DemoGit.Domain.Entities.Produto
+@{
+    ViewData["Title"] = "Deletar Produto";
+}
+
+<h1>Produto</h1>
+<br/>
+<h3>Tem certeza que deseja deletar este produto?</h3>
+<h4 style="color: red;">Esta ação é irreversível!</h4>
+<br/>
+@using(Html.BeginForm("Deletar", "Produto", FormMethod.Post))
+{
+    @Html.HiddenFor(p => p.Id)
+    <div>
+        <input type="submit" value="Sim" class="btn btn-danger"/>
+        <input type="button" class="btn btn-primary" value="Não" onclick="location.href='@Url.Action("Index", "Produto")'" />
+    </div>
+}

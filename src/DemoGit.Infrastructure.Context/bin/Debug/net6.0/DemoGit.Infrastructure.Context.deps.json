@@ -184,6 +184,9 @@
       },
       "System.Security.Principal.Windows/5.0.0": {},
       "DemoGit.Domain/1.0.0": {
+        "dependencies": {
+          "MongoDB.Bson": "2.16.1"
+        },
         "runtime": {
           "DemoGit.Domain.dll": {}
         }

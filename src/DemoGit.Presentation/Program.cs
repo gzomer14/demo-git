@@ -1,5 +1,7 @@
 using DemoGit.Domain.Entities;
 using DemoGit.Infrastructure.Context;
+using DemoGit.Infrastructure.Context.Interfaces;
+using DemoGit.Infrastructure.Context.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,7 @@ builder.Services.Configure<ConnectionStrings>(builder.Configuration.GetSection("
 builder.Services.AddOptions();
 
 builder.Services.AddScoped<DatabaseContext>();
+builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 
 var app = builder.Build();
 
