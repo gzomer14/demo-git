@@ -23,12 +23,17 @@ public class ProdutoController : Controller
 
     public IActionResult Index()
     {
-        return View(_repository.SelectAll());
+        return View();
     }
 
     public IActionResult Inserir()
     {
         return View();
+    }
+
+    public IActionResult CarregarListaProdutosIndex()
+    {
+        return Json(new { produtos = _repository.SelectAll() });
     }
 
     [HttpPost]

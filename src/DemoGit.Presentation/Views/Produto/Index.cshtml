@@ -1,5 +1,4 @@
-﻿@model List<DemoGit.Domain.Entities.Produto>
-@{
+﻿@{
     ViewData["Title"] = "Produtos";
 }
 
@@ -15,16 +14,36 @@
         <th>Editar</th>
         <th>Deletar</th>
     </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {     
-            <tr>
-                <td>@item.Descricao</td>
-                <td>@item.Preco</td>
-                <td>@item.QuantidadeEstoque</td>
-                <td>@Html.ActionLink("Editar", "Editar", "Produto", new {id = item.Id})</td>
-                <td>@Html.ActionLink("Deletar", "Deletar", "Produto", new {id = item.Id})</td>
-            </tr>
-        }
+    <tbody id="corpoTabela">
+        @* Lista de produtos carregados separadamente para não travar tela *@
     </tbody>
 </table>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                url: "/Produto/CarregarListaProdutosIndex",
+                success: function(result){
+                    var tbody = $('#corpoTabela');
+                    for(var prod of result.produtos)
+                    {
+                        var node = "<tr>" + 
+                            "<td>" + prod.descricao + "</td>" +
+                            "<td>" + prod.preco + "</td>" +
+                            "<td>" + prod.quantidadeEstoque + "</td>" +
+                            "<td><a href='/Produto/Editar/" + prod.id + "'>Editar</a></td>" + 
+                            "<td><a href='/Produto/Deletar/" + prod.id + "'>Deletar</a></td>" + 
+                        "</tr>";
+
+                        tbody.append(node);
+                    }
+                },
+                error: function(xhr,status,error){
+                    prompt("Erro no carregamento de produtos!");
+                }
+            })
+        })
+    </script>
+}
