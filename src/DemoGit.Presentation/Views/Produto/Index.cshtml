@@ -14,7 +14,7 @@
         <th>Editar</th>
         <th>Deletar</th>
     </thead>
-    <tbody id="corpoTabela">
+    <tbody id="corpoTabela" >
         @* Lista de produtos carregados separadamente para não travar tela *@
     </tbody>
 </table>
@@ -30,6 +30,7 @@
                     for(var prod of result.produtos)
                     {
                         var node = "<tr>" + 
+                            "<td><img style='width: 50px; heigth: 50px;' src='data:image/png;base64," + prod.imagem + "'></td>" +
                             "<td>" + prod.descricao + "</td>" +
                             "<td>" + prod.preco + "</td>" +
                             "<td>" + prod.quantidadeEstoque + "</td>" +

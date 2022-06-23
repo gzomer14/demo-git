@@ -5,24 +5,35 @@
 
 <h1>Produto</h1>
 
-@using(Html.BeginForm("Inserir", "Produto", FormMethod.Post))
+@using(Html.BeginForm("Inserir", "Produto", FormMethod.Post, new {enctype="multipart/form-data"}))
 {
-    @Html.ValidationSummary()
-
     <div>
+        @Html.ValidationMessageFor(p => p.ArquivoImagem, null, new {style = "color: red;", id = "ValidationProdutoArquivoImagem"})
+        <br/>
+        @Html.LabelFor(p => p.ArquivoImagem, new {id = "LabelProdutoArquivoImagem"})
+        @Html.EditorFor(p => p.ArquivoImagem, new {htmlAttributes = new {id = "ProdutoArquivoImagem", @class="form-control" }})
+    </div>
+    <div>
+        @Html.ValidationMessageFor(p => p.Descricao, null, new {style = "color: red;", id = "ValidationProdutoDescricao"})
+        <br/>
         @Html.LabelFor(p => p.Descricao, new {id = "LabelProdutoDescricao"})
         @Html.EditorFor(p => p.Descricao, new {htmlAttributes = new {id = "ProdutoDescricao", @class="form-control"}})
     </div>
     <div>
+        @Html.ValidationMessageFor(p => p.Preco, null, new {style = "color: red;", id = "ValidationProdutoPreco"})
+        <br/>
         @Html.LabelFor(p => p.Preco, new {id = "LabelProdutoPreco"})
         @Html.EditorFor(p => p.Preco, new {htmlAttributes = new {id = "ProdutoPreco", @class="form-control"}})
     </div>
     <div>
+        @Html.ValidationMessageFor(p => p.QuantidadeEstoque, null, new {style = "color: red;", id = "ValidationProdutoQuantidadeEstoque"})
+        <br/>
         @Html.LabelFor(p => p.QuantidadeEstoque, new {id = "LabelProdutoQuantidadeEstoque"})
         @Html.EditorFor(p => p.QuantidadeEstoque, new {htmlAttributes = new {id = "ProdutoQuantidadeEstoque", @class="form-control"}})
     </div>
     <br/>
     <div>
         <input type="submit" value="Criar Produto" class="btn btn-primary"/>
+        <input type="button" class="btn btn-light" value="Voltar" onclick="location.href='@Url.Action("Index", "Produto")'" />
     </div>
 }

@@ -38,7 +38,7 @@ public class ProdutoController : Controller
 
     [HttpPost]
     public IActionResult Inserir(
-                                    [Bind("Descricao, Preco, QuantidadeEstoque")]
+                                    [Bind("Descricao, Preco, QuantidadeEstoque, ArquivoImagem")]
                                     Produto model
                                 )
     {
