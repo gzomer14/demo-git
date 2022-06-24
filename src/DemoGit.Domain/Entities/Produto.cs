@@ -12,8 +12,12 @@ namespace DemoGit.Domain.Entities;
 
 public class Produto
 {
+    public Produto()
+    {
+        Id = ObjectId.GenerateNewId().ToString();
+    }
+
     [BsonId]
-    [BsonRepresentation(BsonType.ObjectId)]
     public string? Id { get; set; }
 
     [Display(Name = "Descrição")]

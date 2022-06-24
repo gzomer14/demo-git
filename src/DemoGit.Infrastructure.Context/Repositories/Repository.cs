@@ -39,7 +39,7 @@ namespace DemoGit.Infrastructure.Context.Repositories
             return _collection.Find(FilterById(id)).FirstOrDefault();
         }
 
-        public void Update(T entity)
+        public virtual void Update(T entity)
         {
             var idValue = entity?.GetType()?.GetProperty("Id")?.GetValue(entity, null)?.ToString() ?? "";
 
@@ -48,7 +48,7 @@ namespace DemoGit.Infrastructure.Context.Repositories
 
         private FilterDefinition<T> FilterById(string id)
         {
-            return new BsonDocument("_id", new ObjectId(id));
+            return new BsonDocument("_id", id);
         }
     }
 }

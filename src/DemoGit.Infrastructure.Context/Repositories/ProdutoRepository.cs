@@ -12,8 +12,24 @@ namespace DemoGit.Infrastructure.Context.Repositories;
 
 public class ProdutoRepository : Repository<Produto>, IProdutoRepository
 {
+    private readonly IMongoDatabase _database;
+    private readonly IMongoCollection<Produto> _collection;
+
     public ProdutoRepository(DatabaseContext context)
     : base(context)
     {
+        _database = context.GetDatabase("DemoGit");
+        _collection = _database.GetCollection<Produto>("Produto");
+    }
+
+    public override void Update(Produto entity)
+    {
+        var idFilter = new BsonDocument("_id", entity.Id);
+        var oldProduct = _collection.Find(idFilter).FirstOrDefault();
+
+        if (entity.Imagem is null && oldProduct.Imagem is not null)
+            entity.Imagem = oldProduct.Imagem;
+
+        _collection.ReplaceOne(idFilter, entity);
     }
 }

@@ -7,6 +7,7 @@ using DemoGit.Domain.Entities;
 using DemoGit.Infrastructure.Context.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MongoDB.Bson;
 
 namespace DemoGit.Presentation.Controllers;
 
@@ -107,7 +108,9 @@ public class ProdutoController : Controller
             return View(model);
         }
 
-        model.ValorTotal = produto.Preco ?? 0 * model.QuantidadeCompra;
+        //Por algum motivo desconhecido o Id estava sendo copiado a partir do ProdutoId
+        model.Id = ObjectId.GenerateNewId().ToString();
+        model.ValorTotal = (produto.Preco ?? 0) * model.QuantidadeCompra;
         _compraEfetivadaRepository.Create(model);
 
         produto.QuantidadeEstoque -= model.QuantidadeCompra;

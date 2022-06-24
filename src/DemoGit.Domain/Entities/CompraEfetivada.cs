@@ -9,11 +9,15 @@ namespace DemoGit.Domain.Entities
 {
     public class CompraEfetivada
     {
+        public CompraEfetivada()
+        {
+            Id = ObjectId.GenerateNewId().ToString();
+        }
+
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
 
-        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonRepresentation(BsonType.String)]
         public string? ProdutoId { get; set; }
 
         public int QuantidadeCompra { get; set; }
