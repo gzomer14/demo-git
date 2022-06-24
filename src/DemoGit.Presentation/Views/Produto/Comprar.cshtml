@@ -1,0 +1,28 @@
+﻿@model DemoGit.Domain.Entities.CompraEfetivada
+@{
+    ViewData["Title"] = "Comprar Produto";
+
+    var descricaoProduto = ViewBag.CompraProdutoDescricao;
+    var precoProduto = ViewBag.CompraProdutoPreco;
+    var quantidadeEstoqueProduto = ViewBag.CompraProdutoQuantidadeEstoque;
+}
+
+<h1>Produto</h1>
+<br/>
+<p><b>Descrição: </b>@descricaoProduto</p>
+<p><b>Valor (R$): </b>@precoProduto</p>
+@using(Html.BeginForm("Comprar", "Produto", FormMethod.Post, new { onsubmit="return confirm('Você realmente deseja comprar este produto?');" }))
+{
+    @Html.HiddenFor(c => c.ProdutoId)
+    @Html.ValidationMessage("CompraNaoPermitida", null, new { style = "color: red;" });
+
+    <div>
+        @Html.Label("ProdutoQuantidadeEscolhida", "Quantidade desejada: ")
+        @Html.EditorFor(c => c.QuantidadeCompra, new { htmlAttributes = new { id = "CompraEfetivaQuantidadeCompra", max = quantidadeEstoqueProduto, min = 0, @class = "form-control" }})
+    </div>
+    <br/>
+    <div>
+        <input type="submit" value="Comprar" class="btn btn-danger"/>
+        <input type="button" class="btn btn-primary" value="Voltar" onclick="location.href='@Url.Action("Index", "Produto")'" />
+    </div>
+}

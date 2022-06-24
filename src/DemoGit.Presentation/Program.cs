@@ -12,7 +12,9 @@ builder.Services.Configure<ConnectionStrings>(builder.Configuration.GetSection("
 builder.Services.AddOptions();
 
 builder.Services.AddScoped<DatabaseContext>();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
+builder.Services.AddScoped<ICompraEfetivadaRepository, CompraEfetivadaRepository>();
 
 var app = builder.Build();
 

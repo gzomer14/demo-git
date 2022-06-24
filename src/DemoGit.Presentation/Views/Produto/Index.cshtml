@@ -8,11 +8,13 @@
 
 <table class="table">
     <thead>
+        <th>Produto</th>
         <th>Descrição</th>
         <th>Valor (R$)</th>
         <th>Quantidade em estoque</th>
         <th>Editar</th>
         <th>Deletar</th>
+        <th>Comprar</th>
     </thead>
     <tbody id="corpoTabela" >
         @* Lista de produtos carregados separadamente para não travar tela *@
@@ -36,6 +38,7 @@
                             "<td>" + prod.quantidadeEstoque + "</td>" +
                             "<td><a href='/Produto/Editar/" + prod.id + "'>Editar</a></td>" + 
                             "<td><a href='/Produto/Deletar/" + prod.id + "'>Deletar</a></td>" + 
+                            "<td><a href='/Produto/Comprar/" + prod.id + "'>Comprar</a></td>" + 
                         "</tr>";
 
                         tbody.append(node);

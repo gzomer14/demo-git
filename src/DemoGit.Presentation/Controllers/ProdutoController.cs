@@ -14,11 +14,13 @@ public class ProdutoController : Controller
 {
     private readonly ILogger<ProdutoController> _logger;
     private readonly IProdutoRepository _repository;
+    private readonly ICompraEfetivadaRepository _compraEfetivadaRepository;
 
-    public ProdutoController(ILogger<ProdutoController> logger, IProdutoRepository repository)
+    public ProdutoController(ILogger<ProdutoController> logger, IProdutoRepository repository, ICompraEfetivadaRepository compraEfetivadaRepository)
     {
         _logger = logger;
         _repository = repository;
+        _compraEfetivadaRepository = compraEfetivadaRepository;
     }
 
     public IActionResult Index()
@@ -79,6 +81,37 @@ public class ProdutoController : Controller
     public IActionResult Deletar(Produto model)
     {
         _repository.DeleteById(model.Id ?? "");
+
+        return RedirectToAction("Index");
+    }
+
+    public IActionResult Comprar(string id)
+    {
+        var produto = _repository.SelectById(id);
+
+        ViewBag.CompraProdutoDescricao = produto.Descricao;
+        ViewBag.CompraProdutoPreco = produto.Preco;
+        ViewBag.CompraProdutoQuantidadeEstoque = produto.QuantidadeEstoque;
+
+        return View(new CompraEfetivada { ProdutoId = produto.Id });
+    }
+
+    [HttpPost]
+    public IActionResult Comprar(CompraEfetivada model)
+    {
+        var produto = _repository.SelectById(model.ProdutoId ?? "");
+
+        if (produto.QuantidadeEstoque < model.QuantidadeCompra)
+        {
+            ModelState.AddModelError("CompraNaoPermitida", "Este produto não possui mais estoque para sua compra!");
+            return View(model);
+        }
+
+        model.ValorTotal = produto.Preco ?? 0 * model.QuantidadeCompra;
+        _compraEfetivadaRepository.Create(model);
+
+        produto.QuantidadeEstoque -= model.QuantidadeCompra;
+        _repository.Update(produto);
 
         return RedirectToAction("Index");
     }
