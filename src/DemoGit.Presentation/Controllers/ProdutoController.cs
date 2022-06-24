@@ -78,7 +78,7 @@ public class ProdutoController : Controller
     [HttpPost]
     public IActionResult Deletar(Produto model)
     {
-        _repository.DeleteById(model.Id);
+        _repository.DeleteById(model.Id ?? "");
 
         return RedirectToAction("Index");
     }

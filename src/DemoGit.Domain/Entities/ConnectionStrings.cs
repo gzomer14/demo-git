@@ -7,5 +7,5 @@ namespace DemoGit.Domain.Entities;
 
 public class ConnectionStrings
 {
-    public string MongoDB { get; set; }
+    public string? MongoDB { get; set; }
 }
