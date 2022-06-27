@@ -8,4 +8,5 @@ namespace DemoGit.Infrastructure.Context.Interfaces;
 
 public interface IProdutoRepository : IRepository<Produto>
 {
+    List<Produto> SelectLikeDescription(string pesquisa);
 }

@@ -22,6 +22,11 @@ public class ProdutoRepository : Repository<Produto>, IProdutoRepository
         _collection = _database.GetCollection<Produto>("Produto");
     }
 
+    public List<Produto> SelectLikeDescription(string pesquisa)
+    {
+        return _collection.Find(p => p.Descricao!.ToLower().Contains(pesquisa.ToLower())).ToList();
+    }
+
     public override void Update(Produto entity)
     {
         var idFilter = new BsonDocument("_id", entity.Id);

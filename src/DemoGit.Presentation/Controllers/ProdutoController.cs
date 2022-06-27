@@ -138,7 +138,8 @@ public class ProdutoController : Controller
         return RedirectToAction("Index");
     }
 
-    public IActionResult FavoritarProduto(string id)
+    [HttpGet]
+    public IActionResult FavoritarProduto(string id, string nameActionRedirect)
     {
         using (var storage = new LocalStorage())
         {
@@ -152,7 +153,7 @@ public class ProdutoController : Controller
             }
         }
 
-        return RedirectToAction("Index");
+        return RedirectToAction(nameActionRedirect);
     }
 
     public IActionResult CarregarListaProdutosFavoritados()
@@ -168,5 +169,25 @@ public class ProdutoController : Controller
         }
 
         return Json(new { produtos = listProdutos });
+    }
+
+    public IActionResult FiltroProdutosIndex(string pesquisa)
+    {
+        var listProdutos = new List<Produto>();
+
+        if (!string.IsNullOrWhiteSpace(pesquisa))
+            listProdutos = _repository.SelectLikeDescription(pesquisa);
+        else
+            listProdutos = _repository.SelectAll();
+
+        using (var storage = new LocalStorage())
+        {
+            foreach (var prod in listProdutos)
+            {
+                prod.IsFavoritado = storage.Exists(prod.Id);
+            }
+        }
+
+        return Json(new { produtos = listProdutos, resourceImages = _resourceRepository.GetImages() });
     }
 }
