@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Produtos favoritados";
+}
+
+<h1>Favoritos</h1>
+
+<table class="table">
+    <thead>
+        <th>Produto</th>
+        <th>Descrição</th>
+        <th>Valor (R$)</th>
+        <th>Quantidade em estoque</th>
+        <th>Comprar</th>
+        <th>Favorito</th>
+    </thead>
+    <tbody id="corpoTabelaFavoritos" >
+        @* Lista de produtos favoritados carregados separadamente para não travar tela *@
+    </tbody>
+</table>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                url: "/Produto/CarregarListaProdutosFavoritados",
+                success: function(result){
+                    var tbody = $('#corpoTabelaFavoritos');
+                    for(var prod of result.produtos)
+                    {                        
+                        var node = "<tr>" +
+                            "<td><img style='width: 50px; heigth: 50px;' src='data:image/png;base64," + prod.imagem + "'></td>" +
+                            "<td>" + prod.descricao + "</td>" +
+                            "<td>" + prod.preco + "</td>" +
+                            "<td>" + prod.quantidadeEstoque + "</td>" +
+                            "<td><a href='/Produto/Comprar/" + prod.id + "'>Comprar</a></td>" +
+                            "<td><a href='/Produto/FavoritarProduto/" + prod.id + "'>Remover</a></td>" + 
+                        "</tr>";
+
+                        tbody.append(node);
+                    }
+                },
+                error: function(xhr,status,error){
+                    alert("Erro no carregamento de produtos favoritados!");
+                }
+            })
+        })
+    </script>
+}

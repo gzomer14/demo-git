@@ -15,6 +15,7 @@ builder.Services.AddScoped<DatabaseContext>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddScoped<ICompraEfetivadaRepository, CompraEfetivadaRepository>();
+builder.Services.AddScoped<IResourceRepository, ResourceRepository>();
 
 var app = builder.Build();
 

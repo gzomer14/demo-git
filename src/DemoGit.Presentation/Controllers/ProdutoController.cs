@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DemoGit.Domain.Entities;
 using DemoGit.Infrastructure.Context.Interfaces;
+using Hanssens.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MongoDB.Bson;
@@ -13,18 +14,26 @@ namespace DemoGit.Presentation.Controllers;
 
 public class ProdutoController : Controller
 {
+
     private readonly ILogger<ProdutoController> _logger;
     private readonly IProdutoRepository _repository;
     private readonly ICompraEfetivadaRepository _compraEfetivadaRepository;
+    private readonly IResourceRepository _resourceRepository;
 
-    public ProdutoController(ILogger<ProdutoController> logger, IProdutoRepository repository, ICompraEfetivadaRepository compraEfetivadaRepository)
+    public ProdutoController(ILogger<ProdutoController> logger, IProdutoRepository repository, ICompraEfetivadaRepository compraEfetivadaRepository, IResourceRepository resourceRepository)
     {
         _logger = logger;
         _repository = repository;
         _compraEfetivadaRepository = compraEfetivadaRepository;
+        _resourceRepository = resourceRepository;
     }
 
     public IActionResult Index()
+    {
+        return View();
+    }
+
+    public IActionResult ListaFavoritos()
     {
         return View();
     }
@@ -36,7 +45,17 @@ public class ProdutoController : Controller
 
     public IActionResult CarregarListaProdutosIndex()
     {
-        return Json(new { produtos = _repository.SelectAll() });
+        var listProdutos = _repository.SelectAll();
+
+        using (var storage = new LocalStorage())
+        {
+            foreach (var prod in listProdutos)
+            {
+                prod.IsFavoritado = storage.Exists(prod.Id);
+            }
+        }
+
+        return Json(new { produtos = listProdutos, resourceImages = _resourceRepository.GetImages() });
     }
 
     [HttpPost]
@@ -117,5 +136,37 @@ public class ProdutoController : Controller
         _repository.Update(produto);
 
         return RedirectToAction("Index");
+    }
+
+    public IActionResult FavoritarProduto(string id)
+    {
+        using (var storage = new LocalStorage())
+        {
+            if (storage.Exists(id))
+            {
+                storage.Remove(id);
+            }
+            else
+            {
+                storage.Store(id, true);
+            }
+        }
+
+        return RedirectToAction("Index");
+    }
+
+    public IActionResult CarregarListaProdutosFavoritados()
+    {
+        var products = _repository.SelectAll();
+        var listProdutos = new List<Produto>();
+
+        using (var storage = new LocalStorage())
+        {
+            foreach (var prod in products)
+                if (storage.Exists(prod.Id))
+                    listProdutos.Add(prod);
+        }
+
+        return Json(new { produtos = listProdutos });
     }
 }

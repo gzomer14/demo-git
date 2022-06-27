@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Produtos";
+    var dir = Directory.GetCurrentDirectory();
 }
 
 <h1>Produtos</h1>
@@ -8,6 +9,7 @@
 
 <table class="table">
     <thead>
+        <th>Favorito</th>
         <th>Produto</th>
         <th>Descrição</th>
         <th>Valor (R$)</th>
@@ -31,7 +33,21 @@
                     var tbody = $('#corpoTabela');
                     for(var prod of result.produtos)
                     {
-                        var node = "<tr>" + 
+                        let heartIconResource = result.resourceImages.find(r => r.fileName == "heart_icon.png");
+                        let activeHeartIconResource = result.resourceImages.find(r => r.fileName == "active_heart_icon.png");
+                        var base64 = ''; 
+
+                        if(prod.isFavoritado === true)
+                        {
+                            base64 = activeHeartIconResource.base64;
+                        }
+                        else
+                        {
+                            base64 = heartIconResource.base64;
+                        }
+                        
+                        var node = "<tr>" +
+                            "<td><a href='/Produto/FavoritarProduto/" + prod.id + "'><img style='width: 25px; heigth: 25px;' src='data:image/png;base64," + base64 + "' ></a></td>" +
                             "<td><img style='width: 50px; heigth: 50px;' src='data:image/png;base64," + prod.imagem + "'></td>" +
                             "<td>" + prod.descricao + "</td>" +
                             "<td>" + prod.preco + "</td>" +

@@ -59,4 +59,7 @@ public class Produto
     }
 
     public byte[]? Imagem { get; set; }
+
+    [BsonIgnore]
+    public bool IsFavoritado { get; set; }
 }
