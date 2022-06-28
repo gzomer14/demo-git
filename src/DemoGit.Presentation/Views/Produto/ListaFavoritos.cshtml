@@ -4,7 +4,7 @@
 
 <h1>Favoritos</h1>
 
-<table class="table">
+<table class="table" id="TabelaProdutosFavoritados">
     <thead>
         <th>Produto</th>
         <th>Descrição</th>
@@ -39,6 +39,8 @@
 
                         tbody.append(node);
                     }
+
+                    $('#TabelaProdutosFavoritados').DataTable();
                 },
                 error: function(xhr,status,error){
                     alert("Erro no carregamento de produtos favoritados!");

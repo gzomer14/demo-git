@@ -14,18 +14,6 @@
 </div>
 <br/>
 <div class="row">
-    <div class="col-1">
-    <label><b>Descrição:</b></label>
-    </div>
-    <div class="col-10">
-    <input type="text" class="form-control" id="ProdutoIndexTextoProduto"/>
-    </div>
-    <div class="col-1">
-    <input type="button" class="btn btn-primary" value="Pesquisar" id="BotaoPesquisaProdutoIndex"/>
-    </div>
-</div>
-<br/>
-<div class="row">
     <table class="table" id="TabelaProdutoIndex">
         <thead>
             <th>Favorito</th>
@@ -80,54 +68,12 @@
 
                         tbody.append(node);
                     }
+
+                    $('#TabelaProdutoIndex').DataTable();
                 },
                 error: function(xhr,status,error){
                     alert("Erro no carregamento de produtos!");
                 }
-            })
-
-            $('#BotaoPesquisaProdutoIndex').click(() => {
-                let textoPesquisa = $('#ProdutoIndexTextoProduto').val();
-
-                $.ajax({
-                    url: "/Produto/FiltroProdutosIndex",
-                    data: {pesquisa: textoPesquisa},
-                    success: function(result){
-                        var tbody = $('#corpoTabelaIndexProduto');
-                        tbody.empty();
-                        for(var prod of result.produtos)
-                        {
-                            let heartIconResource = result.resourceImages.find(r => r.fileName == "heart_icon.png");
-                            let activeHeartIconResource = result.resourceImages.find(r => r.fileName == "active_heart_icon.png");
-                            var base64 = ''; 
-
-                            if(prod.isFavoritado === true)
-                            {
-                                base64 = activeHeartIconResource.base64;
-                            }
-                            else
-                            {
-                                base64 = heartIconResource.base64;
-                            }
-                            
-                            var node = "<tr>" +
-                                "<td><a href='/Produto/FavoritarProduto/" + prod.id + "?nameActionRedirect=Index'><img style='width: 25px; heigth: 25px;' src='data:image/png;base64," + base64 + "' ></a></td>" +
-                                "<td><img style='width: 50px; heigth: 50px;' src='data:image/png;base64," + prod.imagem + "'></td>" +
-                                "<td>" + prod.descricao + "</td>" +
-                                "<td>" + prod.preco + "</td>" +
-                                "<td>" + prod.quantidadeEstoque + "</td>" +
-                                "<td><a href='/Produto/Editar/" + prod.id + "'>Editar</a></td>" + 
-                                "<td><a href='/Produto/Deletar/" + prod.id + "'>Deletar</a></td>" + 
-                                "<td><a href='/Produto/Comprar/" + prod.id + "'>Comprar</a></td>" + 
-                            "</tr>";
-
-                            tbody.append(node);
-                        }
-                    },
-                    error: function(xhr,status,error){
-                        alert("Erro no carregamento de produtos!");
-                    }
-                })
             })
         })
     </script>
