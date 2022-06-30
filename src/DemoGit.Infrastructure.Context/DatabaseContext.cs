@@ -18,5 +18,4 @@ public class DatabaseContext
 
     public IMongoDatabase GetDatabase(string database)
         => client.GetDatabase(database);
-
 }

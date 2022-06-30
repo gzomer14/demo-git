@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using DemoGit.Infrastructure.Context.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DemoGit.Presentation.Controllers;
@@ -6,10 +7,12 @@ namespace DemoGit.Presentation.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly IResourceRepository _resourceRepository;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, IResourceRepository resourceRepository)
     {
         _logger = logger;
+        _resourceRepository = resourceRepository;
     }
 
     public IActionResult Index()

@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using DemoGit.Domain.Entities;
 using DemoGit.Infrastructure.Context.Interfaces;
 using Hanssens.Net;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MongoDB.Bson;
 
 namespace DemoGit.Presentation.Controllers;
 
+[Authorize]
 public class ProdutoController : Controller
 {
 

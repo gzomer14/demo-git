@@ -1,0 +1,36 @@
+﻿@model DemoGit.Domain.Entities.Usuario
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+<br/>
+@using(Html.BeginForm("Login", "Login", FormMethod.Post))
+{
+    <div class="row">
+        @Html.ValidationMessage("ErroLoginUsuario", new {style = "color: red;"})
+    </div>
+    <div class="row">
+        <div class="col-6">
+            @Html.ValidationMessageFor(u => u.Username, null, new {style="color: red;"})
+            <br/>
+            @Html.LabelFor(u => u.Username)
+            @Html.EditorFor(u => u.Username, new {htmlAttributes = new {@class = "form-control", required = true}})
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            @Html.ValidationMessageFor(u => u.Password, null, new {style="color: red;"})
+            <br/>
+            @Html.LabelFor(u => u.Password)
+            @Html.EditorFor(u => u.Password, new {htmlAttributes = new {@class = "form-control", type = "password", required = true}})
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-3">
+            <input type="submit" value="Logar" class="btn btn-success"/>
+            <input type="button" class="btn btn-primary" value="Criar Usuário" onclick="location.href='@Url.Action("CreateUser", "Login")'" />
+        </div>
+    </div>
+}

@@ -4,11 +4,13 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using DemoGit.Infrastructure.Context.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace DemoGit.Presentation.Controllers
 {
+    [Authorize]
     public class CompraEfetivadaController : Controller
     {
         private readonly ILogger<CompraEfetivadaController> _logger;

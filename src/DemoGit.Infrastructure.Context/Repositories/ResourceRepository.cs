@@ -24,5 +24,10 @@ namespace DemoGit.Infrastructure.Context.Repositories
         {
             return _collection.Find(r => r.ResourceType == "image").ToList();
         }
+
+        public Resource SelectByFileName(string fileName)
+        {
+            return _collection.Find(r => r.FileName == fileName).FirstOrDefault();
+        }
     }
 }

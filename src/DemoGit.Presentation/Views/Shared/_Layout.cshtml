@@ -33,7 +33,20 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Produto" asp-action="ListaFavoritos">Produtos Favoritados</a>
                         </li>
                     </ul>
-                </div>
+                    <ul class="navbar-nav navbar-right">
+                        @if(!User!.Identity!.IsAuthenticated) 
+                        {
+                            <li class="nav-item col-12">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index"><span class="glyphicon glyphicon-log-in"></span>Login</a>
+                            </li>
+                        } else
+                        {
+                            <li class="nav-item">
+                                Seja muito bem vindo, @User.Identity.Name | <a href="/Login/LogOff/" style="color: black;"><b>LogOff</b></a>
+                            </li>
+                        }
+                    </ul>
+                </div>                
             </div>
         </nav>
     </header>

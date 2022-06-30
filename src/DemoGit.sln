@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoGit.Infrastructure.Cont
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoGit.Domain", "DemoGit.Domain\DemoGit.Domain.csproj", "{22E3E2F2-EC83-4075-B83B-CFE05F264965}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoGit.Security", "DemoGit.Security\DemoGit.Security.csproj", "{C79F3011-52AD-4769-A05C-76DD12AC540D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{22E3E2F2-EC83-4075-B83B-CFE05F264965}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22E3E2F2-EC83-4075-B83B-CFE05F264965}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22E3E2F2-EC83-4075-B83B-CFE05F264965}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C79F3011-52AD-4769-A05C-76DD12AC540D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C79F3011-52AD-4769-A05C-76DD12AC540D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C79F3011-52AD-4769-A05C-76DD12AC540D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C79F3011-52AD-4769-A05C-76DD12AC540D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

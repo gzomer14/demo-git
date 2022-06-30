@@ -17,19 +17,19 @@
         @Html.ValidationMessageFor(p => p.Descricao, null, new {style = "color: red;", id = "ValidationProdutoDescricao"})
         <br/>
         @Html.LabelFor(p => p.Descricao, new {id = "LabelProdutoDescricao"})
-        @Html.EditorFor(p => p.Descricao, new {htmlAttributes = new {id = "ProdutoDescricao", @class="form-control"}})
+        @Html.EditorFor(p => p.Descricao, new {htmlAttributes = new {id = "ProdutoDescricao", @class="form-control", required = true}})
     </div>
     <div>
         @Html.ValidationMessageFor(p => p.Preco, null, new {style = "color: red;", id = "ValidationProdutoPreco"})
         <br/>
         @Html.LabelFor(p => p.Preco, new {id = "LabelProdutoPreco"})
-        @Html.EditorFor(p => p.Preco, new {htmlAttributes = new {id = "ProdutoPreco", @class="form-control"}})
+        @Html.EditorFor(p => p.Preco, new {htmlAttributes = new {id = "ProdutoPreco", @class="form-control", required = true}})
     </div>
     <div>
         @Html.ValidationMessageFor(p => p.QuantidadeEstoque, null, new {style = "color: red;", id = "ValidationProdutoQuantidadeEstoque"})
         <br/>
         @Html.LabelFor(p => p.QuantidadeEstoque, new {id = "LabelProdutoQuantidadeEstoque"})
-        @Html.EditorFor(p => p.QuantidadeEstoque, new {htmlAttributes = new {id = "ProdutoQuantidadeEstoque", @class="form-control"}})
+        @Html.EditorFor(p => p.QuantidadeEstoque, new {htmlAttributes = new {id = "ProdutoQuantidadeEstoque", @class="form-control", required = true}})
     </div>
     <br/>
     <div>

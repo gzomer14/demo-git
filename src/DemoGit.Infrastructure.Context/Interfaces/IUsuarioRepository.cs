@@ -6,9 +6,8 @@ using DemoGit.Domain.Entities;
 
 namespace DemoGit.Infrastructure.Context.Interfaces
 {
-    public interface IResourceRepository : IRepository<Resource>
+    public interface IUsuarioRepository : IRepository<Usuario>
     {
-        List<Resource> GetImages();
-        Resource SelectByFileName(string fileName);
+        Usuario SelectByUsername(string? username);
     }
 }
