@@ -1,0 +1,27 @@
+﻿@model DemoGit.Domain.Entities.Usuario
+@{
+    ViewData["Title"] = "Redefinir senha";
+}
+
+<h1>Redefinir senha</h1>
+<br/>
+@using(Html.BeginForm("RedefinirSenha", "Login", FormMethod.Post))
+{
+    @Html.HiddenFor(u => u.Username)
+
+    <div class="row">
+        <div class="col-6">
+            @Html.ValidationMessageFor(u => u.Password, null, new {style="color: red;"})
+            <br/>
+            @Html.LabelFor(u => u.Password, "Nova senha")
+            @Html.EditorFor(u => u.Password, new {htmlAttributes = new {@class = "form-control", type = "password", required = true}})
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-3">
+            <input type="submit" value="Salvar" class="btn btn-success"/>
+            <input type="button" class="btn btn-light" value="Voltar" onclick="location.href='@Url.Action("Index", "Login")'" />
+        </div>
+    </div>
+}

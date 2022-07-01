@@ -1,4 +1,6 @@
-using DemoGit.Domain.Entities;
+using DemoGit.Domain.Entities.DTO;
+using DemoGit.Domain.Interfaces;
+using DemoGit.Domain.Services;
 using DemoGit.Infrastructure.Context;
 using DemoGit.Infrastructure.Context.Interfaces;
 using DemoGit.Infrastructure.Context.Repositories;
@@ -17,6 +19,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     });
 
 builder.Services.Configure<ConnectionStrings>(builder.Configuration.GetSection("ConnectionStrings"));
+builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
 builder.Services.AddOptions();
 
 builder.Services.AddScoped<DatabaseContext>();
@@ -25,6 +28,7 @@ builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddScoped<ICompraEfetivadaRepository, CompraEfetivadaRepository>();
 builder.Services.AddScoped<IResourceRepository, ResourceRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 var app = builder.Build();
 

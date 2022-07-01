@@ -92,7 +92,7 @@ namespace DemoGit.Presentation.Controllers
                     return View(model);
                 }
 
-                _repository.Create(model);
+                _repository.Create(model, string.Concat(HttpContext.Request.Scheme, "://", HttpContext.Request.Host.Value));
                 return RedirectToAction("Index");
             }
 
@@ -146,6 +146,54 @@ namespace DemoGit.Presentation.Controllers
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme).Wait();
 
             return RedirectToAction("Index");
+        }
+
+        public IActionResult EsqueciSenha()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult EsqueciSenha([Bind("Username")] Usuario model)
+        {
+            if (string.IsNullOrWhiteSpace(model.Username))
+            {
+                ModelState.AddModelError("ErroLoginEsqueciSenha", "Informe um usuário válido!");
+                return View(model);
+            }
+
+            var user = _repository.SelectByUsername(model.Username);
+            if (user is null)
+            {
+                ModelState.AddModelError("ErroLoginEsqueciSenha", "Usuário inexistente!");
+                return View(model);
+            }
+
+            _repository.EnviarEmailEsqueciSenha(user, string.Concat(HttpContext.Request.Scheme, "://", HttpContext.Request.Host.Value));
+            return RedirectToAction("SucessoEsqueciSenha");
+        }
+
+        public IActionResult SucessoEsqueciSenha()
+        {
+            return View();
+        }
+
+        public IActionResult RedefinirSenha(string username)
+        {
+            return View(_repository.SelectByUsername(username));
+        }
+
+        [HttpPost]
+        public IActionResult RedefinirSenha([Bind("Username, Password")] Usuario model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = _repository.SelectByUsername(model.Username!);
+                _repository.Update(user, model.Password!);
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
         }
     }
 }
