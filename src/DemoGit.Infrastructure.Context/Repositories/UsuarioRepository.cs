@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DemoGit.Domain.Entities;
 using DemoGit.Infrastructure.Context.Interfaces;
+using DemoGit.Security.Argon2;
 using MongoDB.Driver;
 
 namespace DemoGit.Infrastructure.Context.Repositories
@@ -23,6 +24,13 @@ namespace DemoGit.Infrastructure.Context.Repositories
         public Usuario SelectByUsername(string? username)
         {
             return _collection.Find(u => u.Username == username).FirstOrDefault();
+        }
+
+        public override async void Create(Usuario entity)
+        {
+            entity.HashPassword = Argon2Utils.HashPassword(entity.Password!);
+
+            await _collection.InsertOneAsync(entity);
         }
     }
 }

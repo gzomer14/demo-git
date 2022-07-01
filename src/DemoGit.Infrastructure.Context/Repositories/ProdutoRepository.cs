@@ -27,14 +27,14 @@ public class ProdutoRepository : Repository<Produto>, IProdutoRepository
         return _collection.Find(p => p.Descricao!.ToLower().Contains(pesquisa.ToLower())).ToList();
     }
 
-    public override void Update(Produto entity)
+    public override async void Update(Produto entity)
     {
         var idFilter = new BsonDocument("_id", entity.Id);
-        var oldProduct = _collection.Find(idFilter).FirstOrDefault();
+        var oldProduct = (await _collection.FindAsync(idFilter)).FirstOrDefault();
 
         if (entity.Imagem is null && oldProduct.Imagem is not null)
             entity.Imagem = oldProduct.Imagem;
 
-        _collection.ReplaceOne(idFilter, entity);
+        await _collection.ReplaceOneAsync(idFilter, entity);
     }
 }

@@ -92,8 +92,6 @@ namespace DemoGit.Presentation.Controllers
                     return View(model);
                 }
 
-                model.HashPassword = Argon2Utils.HashPassword(model.Password!);
-
                 _repository.Create(model);
                 return RedirectToAction("Index");
             }
@@ -101,7 +99,7 @@ namespace DemoGit.Presentation.Controllers
             return View(model);
         }
 
-        private void SignIn(Usuario model)
+        private async void SignIn(Usuario model)
         {
             var claims = new List<Claim>
             {
@@ -137,10 +135,10 @@ namespace DemoGit.Presentation.Controllers
                 // redirect response value.
             };
 
-            HttpContext.SignInAsync(
+            await HttpContext.SignInAsync(
                 CookieAuthenticationDefaults.AuthenticationScheme,
                 new ClaimsPrincipal(claimsIdentity),
-                authProperties).Wait();
+                authProperties);
         }
 
         public IActionResult LogOff()

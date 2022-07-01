@@ -19,14 +19,14 @@ namespace DemoGit.Infrastructure.Context.Repositories
             _collection = _database.GetCollection<T>(typeof(T).Name);
         }
 
-        public void Create(T entity)
+        public virtual async void Create(T entity)
         {
-            _collection.InsertOne(entity);
+            await _collection.InsertOneAsync(entity);
         }
 
-        public void DeleteById(string id)
+        public async void DeleteById(string id)
         {
-            _collection.DeleteOne(FilterById(id));
+            await _collection.DeleteOneAsync(FilterById(id));
         }
 
         public List<T> SelectAll()
@@ -39,11 +39,11 @@ namespace DemoGit.Infrastructure.Context.Repositories
             return _collection.Find(FilterById(id)).FirstOrDefault();
         }
 
-        public virtual void Update(T entity)
+        public virtual async void Update(T entity)
         {
             var idValue = entity?.GetType()?.GetProperty("Id")?.GetValue(entity, null)?.ToString() ?? "";
 
-            _collection.ReplaceOne(FilterById(idValue), entity);
+            await _collection.ReplaceOneAsync(FilterById(idValue), entity);
         }
 
         private FilterDefinition<T> FilterById(string id)

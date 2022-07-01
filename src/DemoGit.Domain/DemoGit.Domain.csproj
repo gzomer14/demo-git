@@ -5,7 +5,10 @@
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="MongoDB.Bson" Version="2.16.1"/>
-		<PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2"/>
+		<PackageReference Include="MongoDB.Bson" Version="2.16.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\DemoGit.Security\DemoGit.Security.csproj" />
 	</ItemGroup>
 </Project>
