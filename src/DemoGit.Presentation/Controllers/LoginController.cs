@@ -29,6 +29,9 @@ namespace DemoGit.Presentation.Controllers
 
         public IActionResult Index()
         {
+            if (User.Identity?.IsAuthenticated ?? false)
+                return RedirectToAction("Index", "Home");
+
             return View();
         }
 
@@ -53,10 +56,7 @@ namespace DemoGit.Presentation.Controllers
                         return View("Index", model);
                     }
 
-                    model.Email = usuarioCadastrado.Email;
-                    model.FullName = usuarioCadastrado.FullName;
-
-                    SignIn(model);
+                    SignIn(usuarioCadastrado);
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -95,7 +95,7 @@ namespace DemoGit.Presentation.Controllers
                 }
 
                 _repository.Create(model, string.Concat(HttpContext.Request.Scheme, "://", HttpContext.Request.Host.Value));
-                return RedirectToAction("Index");
+                return (User.Identity?.IsAuthenticated ?? false) ? RedirectToAction("Index", "Usuario") : RedirectToAction("Index", "Login");
             }
 
             return View(model);
@@ -107,7 +107,7 @@ namespace DemoGit.Presentation.Controllers
             {
                 new Claim(ClaimTypes.Name, model.Username!),
                 new Claim("FullName", model.FullName!),
-                new Claim(ClaimTypes.Role, "Administrator"),
+                new Claim(ClaimTypes.Role, model.Role!),
             };
 
             var claimsIdentity = new ClaimsIdentity(
@@ -200,6 +200,11 @@ namespace DemoGit.Presentation.Controllers
             }
 
             return View(model);
+        }
+
+        public IActionResult AcessoNegado()
+        {
+            return View();
         }
     }
 }

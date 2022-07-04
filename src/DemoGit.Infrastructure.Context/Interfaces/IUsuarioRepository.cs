@@ -12,5 +12,6 @@ namespace DemoGit.Infrastructure.Context.Interfaces
         void Create(Usuario entity, string webUrl);
         void EnviarEmailEsqueciSenha(Usuario user, string webUrl);
         void Update(Usuario user, string newPassword);
+        void UpdateToEdit(Usuario model);
     }
 }

@@ -16,6 +16,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     {
         opt.LoginPath = "/Login/Index";
         opt.LogoutPath = "/Login/LogOff";
+        opt.AccessDeniedPath = "/Login/AcessoNegado";
     });
 
 builder.Services.Configure<ConnectionStrings>(builder.Configuration.GetSection("ConnectionStrings"));

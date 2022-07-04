@@ -35,6 +35,9 @@ namespace DemoGit.Domain.Entities
         [Display(Name = "Nome Completo")]
         public string? FullName { get; set; }
 
+        [BsonDefaultValue("Usuario")]
+        public string? Role { get; set; }
+
         public bool Ativo { get; set; }
     }
 }

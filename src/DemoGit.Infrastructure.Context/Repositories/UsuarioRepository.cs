@@ -35,6 +35,7 @@ namespace DemoGit.Infrastructure.Context.Repositories
         public async void Create(Usuario entity, string webUrl)
         {
             entity.HashPassword = Argon2Utils.HashPassword(entity.Password!);
+            entity.Role = "Usuario";
 
             await _collection.InsertOneAsync(entity);
 
@@ -59,6 +60,19 @@ namespace DemoGit.Infrastructure.Context.Repositories
             user.HashPassword = Argon2Utils.HashPassword(newPassword);
 
             await _collection.ReplaceOneAsync(new BsonDocument("_id", user.Id), user);
+        }
+
+        public async void UpdateToEdit(Usuario model)
+        {
+            if (!string.IsNullOrWhiteSpace(model.Password))
+                model.HashPassword = Argon2Utils.HashPassword(model.Password);
+            else
+            {
+                var user = SelectByUsername(model.Username);
+                model.HashPassword = user.HashPassword;
+            }
+
+            await _collection.ReplaceOneAsync(new BsonDocument("_id", model.Id), model);
         }
     }
 }

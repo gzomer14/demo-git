@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using DemoGit.Infrastructure.Context.Interfaces;
 using MongoDB.Bson;
@@ -44,6 +45,11 @@ namespace DemoGit.Infrastructure.Context.Repositories
             var idValue = entity?.GetType()?.GetProperty("Id")?.GetValue(entity, null)?.ToString() ?? "";
 
             await _collection.ReplaceOneAsync(FilterById(idValue), entity);
+        }
+
+        public List<T> Find(Expression<Func<T, bool>> filter)
+        {
+            return _collection.Find(filter).ToList();
         }
 
         private FilterDefinition<T> FilterById(string id)

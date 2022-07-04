@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Usuarios";
+}
+
+<div class="row">
+<h1>Usuários</h1>
+</div>
+<br/>
+<div class="row">
+    <div class="col-2">
+    <input type="button" class="btn btn-success" value="Criar Usuario" onclick="location.href='@Url.Action("CreateUser", "Login")'" />
+    </div>
+</div>
+<br/>
+<div class="row">
+    <table class="table" id="TabelaUsuariosIndex">
+        <thead>
+            <th>Username</th>
+            <th>Nome Completo</th>
+            <th>E-mail</th>
+            <th>Role</th>
+            <th>Editar</th>
+            <th>Deletar</th>
+        </thead>
+        <tbody id="corpoTabelaIndexUsuarios" >
+            @* Lista de usuarios carregados separadamente para não travar tela *@
+        </tbody>
+    </table>
+</div>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function(){
+            
+            $.ajax({
+                url: "/Usuario/CarregarListaUsuariosIndex",
+                success: function(result){
+                    var tbody = $('#corpoTabelaIndexUsuarios');
+                    for(var user of result.usuarios)
+                    {                        
+                        var node = "<tr>" +
+                            "<td>" + user.username + "</td>" +
+                            "<td>" + user.fullName + "</td>" +
+                            "<td>" + user.email + "</td>" +
+                            "<td>" + user.role + "</td>" +
+                            "<td><a href='/Usuario/Editar/" + user.id + "'>Editar</a></td>" + 
+                            "<td><a href='/Usuario/Deletar/" + user.id + "'>Deletar</a></td>" +
+                        "</tr>";
+
+                        tbody.append(node);
+                    }
+
+                    $('#TabelaUsuariosIndex').DataTable();
+                },
+                error: function(xhr,status,error){
+                    alert("Erro no carregamento dos usuários!");
+                }
+            })
+        })
+    </script>
+}
