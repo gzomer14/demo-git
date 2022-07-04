@@ -23,5 +23,8 @@ namespace DemoGit.Domain.Entities
         public int QuantidadeCompra { get; set; }
 
         public double ValorTotal { get; set; }
+
+        [BsonRepresentation(BsonType.String)]
+        public string? UsuarioId { get; set; }
     }
 }

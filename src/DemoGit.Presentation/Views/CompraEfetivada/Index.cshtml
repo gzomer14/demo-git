@@ -8,6 +8,7 @@
     <thead>
         <th>Produto</th>
         <th>Descrição</th>
+        <th>Comprado Por</th>
         <th>Valor total da compra (R$)</th>
         <th>Preço base do produto (R$)</th>
         <th>Quantidade comprada</th>
@@ -30,6 +31,7 @@
                         var node = "<tr>" + 
                             "<td><img style='width: 50px; heigth: 50px;' src='data:image/png;base64," + compra.produtoImagem + "'></td>" +
                             "<td>" + compra.produtoDescricao + "</td>" +
+                            "<td>" + compra.usuarioCompra + "</td>" +
                             "<td>" + compra.valorTotal + "</td>" +
                             "<td>" + compra.produtoPreco + "</td>" +
                             "<td>" + compra.quantidadeCompra + "</td>" +

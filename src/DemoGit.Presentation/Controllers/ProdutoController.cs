@@ -21,13 +21,15 @@ public class ProdutoController : Controller
     private readonly IProdutoRepository _repository;
     private readonly ICompraEfetivadaRepository _compraEfetivadaRepository;
     private readonly IResourceRepository _resourceRepository;
+    private readonly IUsuarioRepository _usuarioRepository;
 
-    public ProdutoController(ILogger<ProdutoController> logger, IProdutoRepository repository, ICompraEfetivadaRepository compraEfetivadaRepository, IResourceRepository resourceRepository)
+    public ProdutoController(ILogger<ProdutoController> logger, IProdutoRepository repository, ICompraEfetivadaRepository compraEfetivadaRepository, IResourceRepository resourceRepository, IUsuarioRepository usuarioRepository)
     {
         _logger = logger;
         _repository = repository;
         _compraEfetivadaRepository = compraEfetivadaRepository;
         _resourceRepository = resourceRepository;
+        _usuarioRepository = usuarioRepository;
     }
 
     public IActionResult Index()
@@ -132,6 +134,10 @@ public class ProdutoController : Controller
         //Por algum motivo desconhecido o Id estava sendo copiado a partir do ProdutoId
         model.Id = ObjectId.GenerateNewId().ToString();
         model.ValorTotal = (produto.Preco ?? 0) * model.QuantidadeCompra;
+
+        var usuarioAtual = _usuarioRepository.SelectByUsername(User!.Identity!.Name);
+        model.UsuarioId = usuarioAtual.Id;
+
         _compraEfetivadaRepository.Create(model);
 
         produto.QuantidadeEstoque -= model.QuantidadeCompra;
