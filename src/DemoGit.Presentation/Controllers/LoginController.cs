@@ -182,7 +182,11 @@ namespace DemoGit.Presentation.Controllers
 
         public IActionResult RedefinirSenha(string user)
         {
-            return View(_repository.SelectByUsername(AesUtils.Decrypt(HttpUtility.UrlDecode(user))));
+            var findUser = _repository.SelectByUsername(AesUtils.Decrypt(HttpUtility.UrlDecode(user)));
+            if (findUser is null)
+                return RedirectToAction("Index");
+
+            return View(findUser);
         }
 
         [HttpPost]
