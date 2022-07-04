@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using DemoGit.Domain.Entities;
 using DemoGit.Domain.Interfaces;
 using DemoGit.Infrastructure.Context.Interfaces;
+using DemoGit.Security.AES;
 using DemoGit.Security.Argon2;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -47,7 +49,7 @@ namespace DemoGit.Infrastructure.Context.Repositories
         {
             var body = @$"<h1>Esqueci minha senha!</h1>
                          <p>Você acabou esquecendo sua senha? Não tem problema!!</p>
-                         <p><a href='{webUrl + "/Login/RedefinirSenha?username=" + user.Username}'><b>Clique Aqui</b></a> para redefini-lá.</p>";
+                         <p><a href='{webUrl + "/Login/RedefinirSenha?user=" + HttpUtility.UrlEncode(AesUtils.Encrypt(user.Username!))}'><b>Clique Aqui</b></a> para redefini-lá.</p>";
 
             _emailService.SendEmail(user.Email!, "Esqueci minha senha", body);
         }

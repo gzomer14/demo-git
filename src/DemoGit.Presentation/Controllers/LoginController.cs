@@ -4,8 +4,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Web;
 using DemoGit.Domain.Entities;
 using DemoGit.Infrastructure.Context.Interfaces;
+using DemoGit.Security.AES;
 using DemoGit.Security.Argon2;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -178,9 +180,9 @@ namespace DemoGit.Presentation.Controllers
             return View();
         }
 
-        public IActionResult RedefinirSenha(string username)
+        public IActionResult RedefinirSenha(string user)
         {
-            return View(_repository.SelectByUsername(username));
+            return View(_repository.SelectByUsername(AesUtils.Decrypt(HttpUtility.UrlDecode(user))));
         }
 
         [HttpPost]
