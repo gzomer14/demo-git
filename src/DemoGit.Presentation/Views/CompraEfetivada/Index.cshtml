@@ -36,7 +36,7 @@
                             "<td>" + compra.valorTotal + "</td>" +
                             "<td>" + compra.produtoPreco + "</td>" +
                             "<td>" + compra.quantidadeCompra + "</td>" +
-                            "<td>" + compra.dataCompra + "</td>" +
+                            "<td>" + (compra.dataCompra == null ? '' : new Date(compra.dataCompra).toLocaleString()) + "</td>" +
                         "</tr>";
 
                         tbody.append(node);
