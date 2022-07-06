@@ -12,6 +12,7 @@
         <th>Valor total da compra (R$)</th>
         <th>Preço base do produto (R$)</th>
         <th>Quantidade comprada</th>
+        <th>Data da compra</th>
     </thead>
     <tbody id="corpoTabelaCompraEfetivada" >
         @* Lista de compras efetivadas carregadas separadamente para não travar tela *@
@@ -35,6 +36,7 @@
                             "<td>" + compra.valorTotal + "</td>" +
                             "<td>" + compra.produtoPreco + "</td>" +
                             "<td>" + compra.quantidadeCompra + "</td>" +
+                            "<td>" + compra.dataCompra + "</td>" +
                         "</tr>";
 
                         tbody.append(node);

@@ -134,6 +134,7 @@ public class ProdutoController : Controller
         //Por algum motivo desconhecido o Id estava sendo copiado a partir do ProdutoId
         model.Id = ObjectId.GenerateNewId().ToString();
         model.ValorTotal = (produto.Preco ?? 0) * model.QuantidadeCompra;
+        model.DataCompra = DateTime.Now;
 
         var usuarioAtual = _usuarioRepository.SelectByUsername(User!.Identity!.Name);
         model.UsuarioId = usuarioAtual.Id;

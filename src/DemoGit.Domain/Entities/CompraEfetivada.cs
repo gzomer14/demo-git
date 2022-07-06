@@ -26,5 +26,6 @@ namespace DemoGit.Domain.Entities
 
         [BsonRepresentation(BsonType.String)]
         public string? UsuarioId { get; set; }
+        public DateTime? DataCompra { get; set; }
     }
 }

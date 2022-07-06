@@ -44,10 +44,11 @@ namespace DemoGit.Presentation.Controllers
                 {
                     ProdutoDescricao = prod.Descricao,
                     ProdutoImagem = prod.Imagem,
-                    UsuarioCompra = usuarioCompra.FullName,
+                    UsuarioCompra = usuarioCompra?.FullName ?? "",
                     ValorTotal = compra.ValorTotal,
                     ProdutoPreco = prod.Preco,
-                    QuantidadeCompra = compra.QuantidadeCompra
+                    QuantidadeCompra = compra.QuantidadeCompra,
+                    DataCompra = compra.DataCompra
                 });
             }
 
